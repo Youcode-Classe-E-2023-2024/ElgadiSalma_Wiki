@@ -69,11 +69,9 @@ if(!isset($_SESSION['id_user'])){
                 <td class="p-3 px-5"><?php echo $user['email'] ;?></td>
                 <td class="p-3 px-5 flex justify-end">
                 <td class="p-3 px-5 flex justify-end">
-
-                <form action="<?= PATH ?>index.php?page=friend" method="post">
-                    <input type="hidden" name="myid" value="<?php echo $_SESSION['id_user']; ?>">
-                    <input type="hidden" name="friendid" value="<?php echo $user['id_user'] ; ?>">
-                    <button type="submit" name="decline" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
+                <form action="<?= PATH ?>index.php?page=users" method="post">
+                    <input type="hidden" name="userId" value="<?php echo $user['id_user'] ; ?>">
+                    <button type="submit" name="supprimer" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
                 </form> 
                 </td>
                 </td>
@@ -116,10 +114,9 @@ if(!isset($_SESSION['id_user'])){
                 <td class="p-3 px-5 flex justify-end">
                 <td class="p-3 px-5 flex justify-end">
 
-                <form action="<?= PATH ?>index.php?page=friend" method="post">
-                    <input type="hidden" name="myid" value="<?php echo $_SESSION['id_user']; ?>">
-                    <input type="hidden" name="friendid" value="<?php echo $user['id_user'] ; ?>">
-                    <button type="submit" name="decline" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
+                <form action="<?= PATH ?>index.php?page=users" method="post">
+                    <input type="hidden" name="userId" value="<?php echo $user['id_user'] ; ?>">
+                    <button type="submit" name="supprimer" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
                 </form> 
                 </td>
                 </td>
