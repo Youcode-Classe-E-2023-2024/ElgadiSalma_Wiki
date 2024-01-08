@@ -51,7 +51,7 @@
         <!-- Add room -->
         <a href="<?= PATH ?>index.php?page=room">
           <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
-              <img src="<?= PATH ?>assets/image/room.png" alt="">
+              <img src="<?= PATH ?>assets/image/img/room.png" alt="">
             </div>  
         </a>
         
@@ -70,7 +70,7 @@
         <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
         
         <form action="index.php?page=page1" method="POST">
-        <button type="submit" name="logout"><img src="<?= PATH ?>assets/image/logout.png" alt=""></button>
+        <button type="submit" name="logout"><img src="<?= PATH ?>assets/image/img/logout.png" alt=""></button>
         </form>
         </div>
 
