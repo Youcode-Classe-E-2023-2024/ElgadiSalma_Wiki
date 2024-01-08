@@ -8,7 +8,7 @@ $myId = $_SESSION['id_user'];
 
 $users = $User->getAllUsers($myId);
 
-if($_SERVER["REQUEST_METHOD"] === 'POST')
+if(isset($_POST['submit']))
     {
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -47,12 +47,27 @@ if($_SERVER["REQUEST_METHOD"] === 'POST')
                 // end upload pic
             if ($User->register($email, $username,$role, $password, $photo)) 
             {
-            header("location:index.php?page=user");
+            header("location:index.php?page=users");
             }
             else
             {
-                header("location:<?= PATH ?>views/user.php?error");
+                header("location:<?= PATH ?>page=users");
             }
             }
 
     }
+
+    if(isset($_POST['supprimer']))
+    {
+        $userId = $_POST['userId'];
+        echo $userId;
+        if($User->deleteUser($userId))
+        {
+            header("location:index.php?page=users");
+        }
+        else
+        {
+            echo"noo"; 
+        }
+    }
+?>
