@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST')
         $_SESSION['role'] = $userInfo['role'];
         $_SESSION['username'] = $userInfo['username'];
         $_SESSION['email'] = $userInfo['email'];
+        $_SESSION['photo'] = $userInfo['photo'];
+
 
         header("location:index.php?page=page1");
         exit();
