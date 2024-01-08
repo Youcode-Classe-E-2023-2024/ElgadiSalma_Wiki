@@ -11,6 +11,7 @@
         $email = $_POST['email'];
         $password=$_POST['password'];
         $photo = $_FILES['photo']['name'];
+        $role = 0;
         $email_err= "";
 
         if($users->check_email($email))
@@ -42,7 +43,7 @@
                     echo "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
                 }
                 // end upload pic
-            if ($users->register($email, $username, $password, $photo)) 
+            if ($users->register($email, $username, $role, $password, $photo)) 
             {
             header("location:index.php?page=login");
             }
