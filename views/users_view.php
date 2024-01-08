@@ -107,7 +107,7 @@ if(!isset($_SESSION['id_user'])){
             <?php
                 if (!empty($users)) {
                 foreach ($users as $user) {
-
+                if($user['role']===0){
             ?>
             <tr class="border-b hover:bg-orange-100 bg-gray-100">
                 <td class="p-3 px-5 "><img class="h-24 w-24" src="./assets/image/users/<?php echo $user['photo'] ;?>" alt=""></td>
@@ -126,7 +126,7 @@ if(!isset($_SESSION['id_user'])){
             </tr>
             <?php
                 }
-                }else{?>
+                }}else{?>
                 <td class="text-red-700 p-3 px-5"><?php echo 'Aucun Utilisateur trouvé';?></td>
                 <?php }
             ?>
