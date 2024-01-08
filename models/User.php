@@ -16,18 +16,16 @@ class User
     public function getAllUsers($myId)
     {
         global $db;
+        $stmt = $db->prepare("SELECT * FROM users WHERE id_user !=$myId");
+        $stmt->execute();
 
-    // Sélectionner les utilisateurs qui ne sont pas déjà amis
-    $stmt = $db->prepare("SELECT * FROM users WHERE id_user !=$myId AND id_user NOT IN (SELECT id_user2 FROM friend WHERE id_user1 = $myId) AND id_user NOT IN (SELECT id_user1 FROM friend WHERE id_user2 = $myId)");
-    $stmt->execute();
+        $result = $stmt->get_result();
+        $users = $result->fetch_all(MYSQLI_ASSOC);
 
-    $result = $stmt->get_result();
-    $users = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
 
-    $stmt->close();
-
-    return $users;
-}
+        return $users;
+    }
     public function check_email($email)
     {
         global $db;
@@ -38,12 +36,12 @@ class User
         $row = $result->fetch_assoc();
         return ($row) ? true : false;
     }
-    public function register($email, $username, $password, $photo)
+    public function register($email, $username,$role, $password, $photo)
     {
         global $db;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $db->prepare("INSERT INTO users (username, email, password, photo) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param('ssss', $username, $email, $hashedPassword, $photo);
+        $stmt = $db->prepare("INSERT INTO users (username, email, password, photo, role) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssi', $username, $email, $hashedPassword, $photo, $role);
         $result = $stmt->execute();
         return $result;
     }
@@ -60,7 +58,7 @@ class User
         if ($row) {
             $hashedPasswordFromDatabase = $row['password'];
             if (password_verify($password, $hashedPasswordFromDatabase)) {
-                return ['id_user' => $row['id_user'], 'username' => $row['username'], 'email' => $row['email'],'role' => $row['role']];
+                return ['id_user' => $row['id_user'], $row['photo'], 'username' => $row['username'], 'email' => $row['email'],'role' => $row['role']];
             } else {
                 return false;
             }
