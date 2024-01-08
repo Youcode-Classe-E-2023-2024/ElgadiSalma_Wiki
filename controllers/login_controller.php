@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST')
         session_start();
 
         $_SESSION['id_user'] = $userInfo['id_user'];
+        $_SESSION['role'] = $userInfo['role'];
         $_SESSION['username'] = $userInfo['username'];
         $_SESSION['email'] = $userInfo['email'];
 
@@ -26,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST')
     else 
     {
         echo "not log";
-        // header("location:index.php?page=login?STATUS=probleme_de_connexion");
+        header("location:index.php?page=login?STATUS=probleme_de_connexion");
         exit();
     }
 }
