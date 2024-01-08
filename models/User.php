@@ -60,7 +60,7 @@ class User
         if ($row) {
             $hashedPasswordFromDatabase = $row['password'];
             if (password_verify($password, $hashedPasswordFromDatabase)) {
-                return ['id_user' => $row['id_user'], 'username' => $row['username'], 'email' => $row['email']];
+                return ['id_user' => $row['id_user'], 'username' => $row['username'], 'email' => $row['email'],'role' => $row['role']];
             } else {
                 return false;
             }
