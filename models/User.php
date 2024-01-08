@@ -75,11 +75,13 @@ class User
         return $result;
     }
 
-    // function edit()
-    // {
-    //     global $db;
-    //     return $db->query("UPDATE users SET users_email = '$this->email', users_username = '$this->username' WHERE users_id = '$this->id_user'");
-    // }
+    public function deleteUser($userId)
+    {
+        global $db;
+        $stmt = $db->prepare("DELETE FROM users  WHERE id_user='$userId'");
+        $results = $stmt->execute();
+        return $results;
+    }
 
     public function setPassword($pwd)
     {
