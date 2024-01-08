@@ -1,8 +1,6 @@
 <?php
 
-include_once 'models/Room.php';
-
-$Room = new  Room();
+include_once 'models/User.php';
 
 $myId = $_SESSION['id_user'];
 // echo $myId;
@@ -19,7 +17,6 @@ if (isset($_POST['logout']))
 
 }
 
-$rooms = $Room->getRooms($myId);
 
 
 
