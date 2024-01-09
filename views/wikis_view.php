@@ -4,6 +4,8 @@ if(!isset($_SESSION['id_user'])){
 }
 ?>
 
+<!-- add wiki -->
+
 <div class="heading text-center font-bold text-2xl text-yellow-400">New Wiki</div>
 
   <form action="<?= PATH ?>index.php?page=wikis" method = "post" enctype="multipart/form-data">
@@ -45,7 +47,7 @@ if(!isset($_SESSION['id_user'])){
       
       <input type="hidden" name="myId" value="<?php echo$_SESSION['id_user']; ?>" >
         <!-- <boutton type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Post</boutton> -->
-        <button type="submit" name="submit" class="inline-block rounded-md bg-green-500 px-6 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Modifier</button>
+        <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Modifier</button>
 
       <!-- buttons -->
       <div class="buttons pt-5 flex justify-end">
@@ -53,6 +55,59 @@ if(!isset($_SESSION['id_user'])){
       </div>
     </form>
 </div>
+
+<!-- end add wiki -->
+
+
+
+<!-- display my wikis -->
+
+<div class="min-h-screen bg-gray-100 flex flex-col items-center">
+<div class="heading text-center font-bold text-2xl pt-10 text-yellow-400">My Wikis</div>
+
+<div class="flex pl-36 text-center gap-10 flex-wrap mt-10">
+
+    <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform transition duration-500">
+      <h3 class="mb-3 text-xl font-bold text-indigo-600">Beginner Friendly</h3>
+        <img class="w-full rounded-xl" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Colors" />
+      <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">Javascript Bootcamp for Absolute Beginners</h1>
+      <div class="my-4">
+        <div class="flex space-x-1 items-center">
+        <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+    </div>
+    </div>
+    </div>
+
+    <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform transition duration-500">
+      <h3 class="mb-3 text-xl font-bold text-indigo-600">Beginner Friendly</h3>
+        <img class="w-full rounded-xl" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Colors" />
+      <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">Javascript Bootcamp for Absolute Beginners</h1>
+      <div class="my-4">
+        <div class="flex space-x-1 items-center">
+        <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+    </div>
+    </div>
+    </div>
+
+    <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform transition duration-500">
+      <h3 class="mb-3 text-xl font-bold text-indigo-600">Beginner Friendly</h3>
+        <img class="w-full rounded-xl" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Colors" />
+      <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">Javascript Bootcamp for Absolute Beginners</h1>
+      <div class="my-4">
+        <div class="flex space-x-1 items-center">
+        <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+    </div>
+    </div>
+    </div>
+
+
+
+  
+</div>
+</div>
+
+<!--end display my wikis -->
+
 
 
 
