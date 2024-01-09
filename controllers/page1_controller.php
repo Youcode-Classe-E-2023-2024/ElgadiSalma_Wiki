@@ -1,7 +1,5 @@
 <?php
 
-include_once 'models/User.php';
-
 $myId = $_SESSION['id_user'];
 // echo $myId;
 
