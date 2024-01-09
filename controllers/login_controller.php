@@ -1,7 +1,5 @@
 <?php
 
-include_once 'models/User.php';
-
 $users = new  User();
 
 if ($_SERVER["REQUEST_METHOD"] === 'POST') 
