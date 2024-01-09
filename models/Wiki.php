@@ -44,7 +44,7 @@ class Wiki
     
     public function getMyWikis($myId)
     {
-        $this->db->query("SELECT * FROM wikis WHERE created_by = '$myId'");
+        $this->db->query("SELECT * FROM wikis WHERE created_by = '$myId' ORDER BY created_at DESC");
         $wikis = $this->db->resultSet();
         return $wikis; 
     }
