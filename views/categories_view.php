@@ -3,7 +3,12 @@ if(!isset($_SESSION['id_user'])){
     header("location:index.php?page=login");
 }
 ?>
-    
+
+    <!-- admin -->
+    <?php
+    if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
+    {
+    ?>
     <h1 class="text-4xl text-yellow-400 py-4 text-center font-bold">Ajouter des Categories</h1>
 
     <!-- form pour add Categories -->
@@ -69,3 +74,54 @@ if(!isset($_SESSION['id_user'])){
 
     </div>
     <!--  -->
+    <?php  
+    } 
+    ?>
+
+    <!-- end admin -->
+
+
+
+    <!-- user -->
+    <?php
+    if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
+    {
+    ?>
+
+    <!-- display Categories -->
+    <h1 class="text-4xl text-yellow-400 py-4 text-center font-bold">Categories disponibles</h1>
+        
+    <div class="flex justify-center text-center gap-10 flex-wrap mt-10">
+        <?php
+        if (!empty($categories)) {
+        foreach ($categories as $category) {
+        ?>
+        
+    <div class="w-full max-w-sm overflow-hidden rounded-lg border-2 bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl"> 
+        <h3 class="mt-2 text-center text-2xl font-bold text-gray-500"><?php echo $category['name'] ;?></h3>
+        <?php $formattedDate = date("d/m/Y", strtotime($category['created_at']));?>
+        <p class="my-4 text-center text-sm text-gray-500">Disponible depuis : <?php echo $formattedDate; ?></p>
+        <div class="space-x-4 bg-gray-200 py-4 flex justify-center text-center">
+
+        </div>
+    </div>
+
+        <?php }}
+        else{?>
+            <div class="flex justify-center w-full h-24 gap-10 flex-wrap mt-10">
+            <div class="w-full max-w-sm overflow-hidden rounded-lg border-2 bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl">
+            <h4 class="text-center text-red-500 text-xl font-bold pt-8">Aucune category trouvée</h4>
+            </div>
+            </div>
+        <?php }
+         ?>
+
+    </div>
+    <!--  -->
+
+    <?php  
+    } 
+    ?>
+
+    <!-- end user -->
+
