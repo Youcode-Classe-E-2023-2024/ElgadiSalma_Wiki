@@ -1,31 +1,3 @@
-<!-- <div class="login-box">
-  <h2>Register</h2>
-  <form method="post" action="<?= PATH ?>index.php?page=register">
-    <div class="user-box">
-      <input type="text" name="username" required="">
-      <label>User name</label>
-    </div>
-    <div class="user-box">
-      <input type="email" name="email" required="">
-      <label>Email</label>
-    </div>
-    <div class="user-box">
-      <input type="password" name="password" required="">
-      <label>Password</label>
-    </div>
-    <div class="user-box">
-      <input type="text" name="photo" required="">
-      <label>Photo</label>
-    </div>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <button type="submit" name="submit">Register</button>
-      
-  </form>
-</div> -->
-
 <div class="bg-yellow-400 h-screen overflow-hidden flex items-center justify-center">
   <div class="bg-white lg:w-5/12 md:6/12 w-10/12 shadow-3xl">
     <div class="bg-gray-800 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
