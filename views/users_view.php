@@ -59,17 +59,17 @@ if(!isset($_SESSION['id_user'])){
             <?php
                 if (!empty($users)) {
                 foreach ($users as $user) {
-                if($user['role']===1){
+                if($user->role===1){
 
             ?>
             <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                <td class="p-3 px-5 "><img class="h-24 w-24" src="./assets/image/users/<?php echo $user['photo'] ;?>" alt=""></td>
-                <td class="p-3 px-5"><?php echo $user['username'] ;?></td>
-                <td class="p-3 px-5"><?php echo $user['email'] ;?></td>
+                <td class="p-3 px-5 "><img class="h-24 w-24" src="./assets/image/users/<?php echo $user->photo ;?>" alt=""></td>
+                <td class="p-3 px-5"><?php echo $user->username ;?></td>
+                <td class="p-3 px-5"><?php echo $user->email ;?></td>
                 <td class="p-3 px-5 flex justify-end">
                 <td class="p-3 px-5 flex justify-end">
                 <form action="<?= PATH ?>index.php?page=users" method="post">
-                    <input type="hidden" name="userId" value="<?php echo $user['id_user'] ; ?>">
+                    <input type="hidden" name="userId" value="<?php echo $user->id_user ; ?>">
                     <button type="submit" name="supprimer" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
                 </form> 
                 </td>
@@ -104,17 +104,17 @@ if(!isset($_SESSION['id_user'])){
             <?php
                 if (!empty($users)) {
                 foreach ($users as $user) {
-                if($user['role']===0){
+                if($user->role===0){
             ?>
             <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                <td class="p-3 px-5 "><img class="h-24 w-24" src="./assets/image/users/<?php echo $user['photo'] ;?>" alt=""></td>
-                <td class="p-3 px-5"><?php echo $user['username'] ;?></td>
-                <td class="p-3 px-5"><?php echo $user['email'] ;?></td>
+                <td class="p-3 px-5 "><img class="h-24 w-24" src="./assets/image/users/<?php echo $user->photo ;?>" alt=""></td>
+                <td class="p-3 px-5"><?php echo $user->username ;?></td>
+                <td class="p-3 px-5"><?php echo $user->email ;?></td>
                 <td class="p-3 px-5 flex justify-end">
                 <td class="p-3 px-5 flex justify-end">
 
                 <form action="<?= PATH ?>index.php?page=users" method="post">
-                    <input type="hidden" name="userId" value="<?php echo $user['id_user'] ; ?>">
+                    <input type="hidden" name="userId" value="<?php echo $user->id_user ; ?>">
                     <button type="submit" name="supprimer" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Supprimer</button>
                 </form> 
                 </td>
