@@ -22,7 +22,7 @@
     ?>
 
     <!-- component -->
-    <div class="fixed w-full bg-white flex overflow-hidden" style="height: 200vh;"> 
+    <div class="w-full bg-white flex overflow-hidden"> 
 
     <!-- Sidebar -->
     <aside class="fixed h-full w-16 flex flex-col space-y-10 pt-20 items-center z-10	 justify-center bg-gray-800 text-white">
@@ -63,9 +63,9 @@
 
     </aside>
 
-    <div class="w-full fixed h-full flex flex-col justify-between"  style="height: 200vh;">
+    <div class="w-full h-full flex flex-col justify-between">
     <!-- Header -->
-    <header class="fixed h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
+    <header class="fixed z-96 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
       <!-- Informação -->
       <div class="flex flex-shrink-0 items-center space-x-4 text-white">
         
@@ -84,7 +84,7 @@
     
 
     
-    <main class="max-w-full ml-34 h-full flex flex-col gap-5 py-24 relative overflow-y-hidden">
+    <main class=" max-w-full ml-34 h-full flex flex-col gap-5 py-24 overflow-y-hidden">
     <?php include_once 'views/' . $page . '_view.php'; ?>
     </main>
     </div>
