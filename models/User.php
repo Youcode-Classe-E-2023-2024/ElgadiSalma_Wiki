@@ -1,7 +1,9 @@
 <?php
-
+include_once '_config/Database.php';
 class User
 {
+    private $db;
+
     public $id_user;
     public $email;
     public $username;
@@ -10,81 +12,79 @@ class User
 
     public function __construct()
     {
-        global $db;
+        $this->db = new Database();
     }
 
     public function getAllUsers($myId)
     {
-        global $db;
-        $stmt = $db->prepare("SELECT * FROM users WHERE id_user !=$myId");
-        $stmt->execute();
+        $this->db->query("SELECT * FROM users WHERE id_user != :myId");
+        $this->db->bind(':myId', $myId);
+        
 
-        $result = $stmt->get_result();
-        $users = $result->fetch_all(MYSQLI_ASSOC);
-
-        $stmt->close();
+        $users = $this->db->resultSet();
 
         return $users;
     }
-    public function check_email($email)
+
+    public function check_email($email) 
     {
-        global $db;
-        $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+        $this->db->query("SELECT * FROM users WHERE email = ?");
+        $this->db->bind(1, $email, PDO::PARAM_STR);
+
+        $row = $this->db->single();
+
         return ($row) ? true : false;
     }
-    public function register($email, $username,$role, $password, $photo)
+
+    public function register($email, $username, $role, $password, $photo) 
     {
-        global $db;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $db->prepare("INSERT INTO users (username, email, password, photo, role) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param('ssssi', $username, $email, $hashedPassword, $photo, $role);
-        $result = $stmt->execute();
+
+        $this->db->query("INSERT INTO users (username, email, password, photo, role) VALUES (?, ?, ?, ?, ?)");
+        $this->db->bind(1, $username, PDO::PARAM_STR);
+        $this->db->bind(2, $email, PDO::PARAM_STR);
+        $this->db->bind(3, $hashedPassword, PDO::PARAM_STR);
+        $this->db->bind(4, $photo, PDO::PARAM_STR);
+        $this->db->bind(5, $role, PDO::PARAM_INT);
+
+        $result = $this->db->execute();
+
         return $result;
     }
 
-    public function login($email, $password)
-    {
-        global $db;
-        $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
 
-        if ($row) {
-            $hashedPasswordFromDatabase = $row['password'];
-            if (password_verify($password, $hashedPasswordFromDatabase)) {
-                return ['id_user' => $row['id_user'], $row['photo'], 'username' => $row['username'], 'email' => $row['email'],'role' => $row['role']];
-            } else {
-                return false;
-            }
+    public function login($email, $password) 
+    {
+    $this->db->query("SELECT * FROM users WHERE email = :email");
+    $this->db->bind(':email', $email, PDO::PARAM_STR);
+    $this->db->execute();
+
+    $row = $this->db->single();
+
+    if ($row) {
+        $hashedPasswordFromDatabase = $row->password; 
+        if (password_verify($password, $hashedPasswordFromDatabase)) {
+            return [
+                'id_user' => $row->id_user,
+                'photo' => $row->photo,
+                'username' => $row->username,
+                'email' => $row->email,
+                'role' => $row->role
+            ];
         } else {
             return false;
         }
+    } else {
+        return false;
+    }
     }
 
-    public function send_invitation($id_me, $id_user)
-    {
-        global $db;
-        $stmt = $db->prepare("INSERT INTO invitation (id_user1, id_user2) VALUES ('$id_me','$id_user')");
-        $result = $stmt->execute();
-        return $result;
+    public function deleteUser($userId) {
+        $this->db->query("DELETE FROM users WHERE id_user = ?");
+        $this->db->bind(1, $userId, PDO::PARAM_INT);
+
+        return $this->db->execute();
     }
 
-    public function deleteUser($userId)
-    {
-        global $db;
-        $stmt = $db->prepare("DELETE FROM users  WHERE id_user='$userId'");
-        $results = $stmt->execute();
-        return $results;
-    }
 
-    public function setPassword($pwd)
-    {
-        $this->password = password_hash($pwd, PASSWORD_DEFAULT);
-    }
 }
