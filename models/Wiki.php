@@ -34,9 +34,21 @@ class wiki
 
     // add tags
 
-    public function addTag()
+    public function addTag($name)
     {
+        global $db;
+        $stmt = $db->prepare("INSERT INTO tags (name) VALUES (?)");
+        $stmt->bind_param("s", $name); 
+        $result = $stmt->execute();
+        return $result;
+    }
 
+    public function editTag($tagId, $name)
+    {
+        global $db;
+        $stmt = $db->prepare("UPDATE tags SET name = '$name' WHERE id_tag = '$tagId'");
+        $result = $stmt->execute();
+        return $result;
     }
 
     public function getAllTags()
@@ -47,9 +59,6 @@ class wiki
 
         $result = $stmt->get_result();
         $tags = $result->fetch_all(MYSQLI_ASSOC);
-
-        $stmt->close();
-
         return $tags;
     }
 
