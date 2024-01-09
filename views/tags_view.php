@@ -37,6 +37,7 @@ if(!isset($_SESSION['id_user'])){
         if (!empty($tags)) {
         foreach ($tags as $tag) {
         ?>
+        
     <div class="w-full max-w-sm overflow-hidden rounded-lg border-2 bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl"> 
         <form action="<?= PATH ?>index.php?page=tags" method="post"> 
         <input name="name" class="mt-2 text-center text-2xl font-bold text-gray-500" value="<?php echo $tag['name'] ;?>"/>
