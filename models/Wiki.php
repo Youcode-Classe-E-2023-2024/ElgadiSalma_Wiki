@@ -48,6 +48,14 @@ class Wiki
         $wikis = $this->db->resultSet();
         return $wikis; 
     }
+
+    public function deleteWiki($wikiId)
+    {
+        $this->db->query("DELETE FROM wikis WHERE id_wiki = ?");
+        $this->db->bind(1, $wikiId, PDO::PARAM_INT);
+
+        return $this->db->execute();
+    }
     
     // end CRUD wiki
 
