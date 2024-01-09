@@ -78,7 +78,7 @@ class wiki
 
 
     // add category
-public function addCategory($name)
+    public function addCategory($name)
     {
         global $db;
         $stmt = $db->prepare("INSERT INTO category (name) VALUES (?)");
@@ -90,7 +90,7 @@ public function addCategory($name)
     public function editCategory($categoryId, $name)
     {
         global $db;
-        $stmt = $db->prepare("UPDATE category SET name = '$name' WHERE id_category = '$categoryId'");
+        $stmt = $db->prepare("UPDATE category SET name = '$name', updated_at = NOW() WHERE id_category = '$categoryId'");
         $result = $stmt->execute();
         return $result;
     }
@@ -98,14 +98,13 @@ public function addCategory($name)
     public function getAllCategories()
     {
         global $db;
-        $stmt = $db->prepare("SELECT * FROM category");
+        $stmt = $db->prepare("SELECT * FROM category ORDER BY updated_at DESC");
         $stmt->execute();
 
         $result = $stmt->get_result();
         $categories = $result->fetch_all(MYSQLI_ASSOC);
         return $categories;
     }
-
     public function deleteCategory($categoryId)
     {
         global $db;
