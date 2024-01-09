@@ -11,11 +11,11 @@ if(!isset($_SESSION['id_user'])){
   <form action="<?= PATH ?>index.php?page=wikis" method = "post" enctype="multipart/form-data">
 
     <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 gap-2 p-4 shadow-lg max-w-2xl">
-      <input class="title bg-gray-100 border border-gray-300 p-2 outline-none" spellcheck="false" name="title" placeholder="Title" type="text">
-      <input class="description bg-gray-100 px-3 h-40 border border-gray-300 outline-none" name="description" placeholder="Description of your wiki"/>
-      <input class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" spellcheck="false" name="photo" placeholder="photo" type="file">
+      <input class="title bg-gray-100 border border-gray-300 p-2 outline-none" spellcheck="false" name="title" placeholder="Title" type="text" required>
+      <input class="description bg-gray-100 px-3 h-40 border border-gray-300 outline-none" name="description" placeholder="Description of your wiki" required>
+      <input class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" spellcheck="false" name="photo" placeholder="photo" type="file" required>
 
-      <select name="category" id="category" class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none">
+      <select name="category" id="category" class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" required>
           <option value="all" selected disabled>Category</option>
           <?php
           // if (!empty($categories)) {
@@ -47,10 +47,11 @@ if(!isset($_SESSION['id_user'])){
       
       <input type="hidden" name="myId" value="<?php echo$_SESSION['id_user']; ?>" >
         <!-- <boutton type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Post</boutton> -->
-        <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Modifier</button>
+        <!-- <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Modifier</button> -->
 
       <!-- buttons -->
-      <div class="buttons pt-5 flex justify-end">
+      <div class="buttons pt-5 gap-2 flex justify-end">
+      <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Save</button>
         <a href="<?= PATH ?>index.php?page=wikis"><div class="btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto">Cancel</div></a>
       </div>
       </div>
@@ -68,7 +69,7 @@ if(!isset($_SESSION['id_user'])){
 <div class="min-h-screen flex flex-col items-center">
 <div class="heading text-center font-bold text-2xl pt-10 text-yellow-400">My Wikis</div>
 
-<div class="flex text-center gap-10 flex-wrap mt-10">
+<div class="flex text-center pl-36 gap-10 flex-wrap mt-10">
 
     <?php
     if (!empty($wikis)) {
