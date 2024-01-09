@@ -27,7 +27,6 @@ if(!isset($_SESSION['id_user'])){
                 <input type="password" id="password" name="password" placeholder="password." class="border border-gray-300 shadow p-3 w-full rounded " required>
             </div>
         </div>
-        <div id="addContainer"></div>
         <div class="flex justify-between">
             <button type="submit" name="submit" class="flex justify-center w-1/3 bg-green-500 text-white font-bold p-4 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
