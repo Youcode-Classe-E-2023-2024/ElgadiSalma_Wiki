@@ -78,7 +78,41 @@ class wiki
 
 
     // add category
+public function addCategory($name)
+    {
+        global $db;
+        $stmt = $db->prepare("INSERT INTO category (name) VALUES (?)");
+        $stmt->bind_param("s", $name); 
+        $result = $stmt->execute();
+        return $result;
+    }
 
+    public function editCategory($categoryId, $name)
+    {
+        global $db;
+        $stmt = $db->prepare("UPDATE category SET name = '$name' WHERE id_category = '$categoryId'");
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    public function getAllCategories()
+    {
+        global $db;
+        $stmt = $db->prepare("SELECT * FROM category");
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $categories = $result->fetch_all(MYSQLI_ASSOC);
+        return $categories;
+    }
+
+    public function deleteCategory($categoryId)
+    {
+        global $db;
+        $stmt = $db->prepare("DELETE FROM category  WHERE id_category='$categoryId'");
+        $results = $stmt->execute();
+        return $results;
+    }
     // end add category
 
 }
