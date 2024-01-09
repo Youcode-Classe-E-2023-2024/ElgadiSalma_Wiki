@@ -1,7 +1,5 @@
 <?php
 
-// include_once 'models/Wiki.php';
-
 $Wiki = new  Wiki();
 
 // display all tags
