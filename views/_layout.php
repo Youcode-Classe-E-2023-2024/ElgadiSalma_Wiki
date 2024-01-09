@@ -8,6 +8,7 @@
     <title><?= ucfirst($page) ?></title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <script src="<?= PATH ?>assets/js/main.js"></script>
+    <script src="<?= PATH ?>assets/js/filter.js"></script>
     <link rel="stylesheet" href="<?= PATH ?>assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js" integrity="sha512-eSeh0V+8U3qoxFnK3KgBsM69hrMOGMBy3CNxq/T4BArsSQJfKVsKb5joMqIPrNMjRQSTl4xG8oJRpgU2o9I7HQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
