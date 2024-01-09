@@ -132,4 +132,37 @@ class Wiki
 
     // end add category
 
+    // filter wikis
+
+    public function allWikis()
+    {
+        $this->db->query("SELECT * FROM wikis");
+        $wikis = $this->db->resultSet();
+        return $wikis;
+    }
+
+    public function filterCategory($category)
+    {
+        $this->db->query("SELECT * FROM wikis WHERE category = '$category'");
+        $wikis = $this->db->resultSet();
+        return $wikis;
+    }
+
+    public function filterTag($tag)
+    {
+        $this->db->query("SELECT * FROM wikis WHERE id_wiki IN (SELECT id_wiki FROM tag_wiki WHERE id_tag = '$tag')");
+        $wikis = $this->db->resultSet();
+        return $wikis;
+    }
+
+    public function filterCategoryTag($category , $tag)
+    {
+        $this->db->query("SELECT * FROM wikis WHERE category = '$category' AND id_wiki IN (SELECT id_wiki FROM tag_wiki WHERE id_tag = '$tag')");
+        $wikis = $this->db->resultSet();
+        return $wikis;
+    }
+
+
+    // end filter wikis
+
 }
