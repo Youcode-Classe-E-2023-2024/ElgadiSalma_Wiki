@@ -10,11 +10,15 @@ $categories = $Wiki->getAllCategories();
 
 // display all tags
 $tags = $Wiki->getAllTags();
-
 //end display all tags
 
+// display my wikis
+$myId = $_SESSION['id_user'];
+$wikis = $Wiki->getMyWikis($myId);
+// end diplay my wikis
+
 // add wiki
-if(isset($_POST['submit']))
+    if(isset($_POST['submit']))
     {
         $title = $_POST['title'];
         $description = $_POST['description'];
@@ -45,17 +49,9 @@ if(isset($_POST['submit']))
                     echo "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
                 }
 
-            // end upload pic
-            if ($Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo)) 
-            {
-            header("location:index.php?page=page1");
-            }
-            else
-            {
-                header("location:<?= PATH ?>page=wikis");
-            }
+    // add wiki
+    $Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo);
             
-
     }
 
 // end add wiki
