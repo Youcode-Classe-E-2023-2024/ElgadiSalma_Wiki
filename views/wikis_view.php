@@ -74,12 +74,15 @@ if(!isset($_SESSION['id_user'])){
 
     <div class="max-w-sm bg-white px-6 pt-6 flex flex-col justify-between pb-2 rounded-xl shadow-lg transform transition duration-500">
     <h3 class="mb-3 text-xl font-bold text-indigo-600"><?php echo $wiki->title ; ?></h3>
-    <img class="w-full rounded-xl" src="./assets/image/wikis/<?php echo $wiki->photo ; ?>" />
-    <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer"><?php echo $wiki->description ; ?></h1>
-    <div class="my-4 ">
-      <div class="flex space-x-1 items-center">
-      <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+    <img class="w-full rounded-xl h-72 w-72" src="./assets/image/wikis/<?php echo $wiki->photo ; ?>" />
+    <div class="mt-4 flex gap-2">
+      <button type="submit" name="modifier" class="inline-block w-1/2 rounded-md bg-green-500 px-6 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Modifier</button>
+      <button type="submit" name="supprimer" class="inline-block rounded-md bg-red-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">Supprimer</button>
     </div>
+    <div class="">
+      <div class="flex space-x-1 items-center">
+        <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+      </div>
     </div>
     </div>
 
