@@ -9,6 +9,7 @@ class Wiki
         $this->db = new Database();
     }
 
+    // CRUD wiki
     public function addWiki($myId, $title, $description, $category, $selectedTags, $photo) {
         $this->db->beginTransaction();
 
@@ -39,8 +40,16 @@ class Wiki
 
         $this->db->endTransaction();
         return true;
-    }    
+    }   
     
+    public function getMyWikis($myId)
+    {
+        $this->db->query("SELECT * FROM wikis WHERE created_by = '$myId'");
+        $wikis = $this->db->resultSet();
+        return $wikis; 
+    }
+    
+    // end CRUD wiki
 
     // Add Tags
     public function addTag($name) 
@@ -75,6 +84,7 @@ class Wiki
 
         return $this->db->execute();
     }
+    // end add tag
 
 
     // Add Category
@@ -112,5 +122,7 @@ class Wiki
 
         return $this->db->execute();
     }
+
+    // end add category
 
 }
