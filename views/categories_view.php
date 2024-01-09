@@ -45,17 +45,17 @@ if(!isset($_SESSION['id_user'])){
         
     <div class="w-full max-w-sm overflow-hidden rounded-lg border-2 bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl"> 
         <form action="<?= PATH ?>index.php?page=Categories" method="post"> 
-        <input name="name" class="mt-2 text-center text-2xl font-bold text-gray-500" value="<?php echo $category['name'] ;?>"/>
-        <?php $formattedDate = date("d/m/Y", strtotime($category['created_at']));?>
+        <input name="name" class="mt-2 text-center text-2xl font-bold text-gray-500" value="<?php echo $category->name ;?>"/>
+        <?php $formattedDate = date("d/m/Y", strtotime($category->created_at));?>
         <p class="my-4 text-center text-sm text-gray-500">Disponible depuis : <?php echo $formattedDate; ?></p>
         <div class="space-x-4 bg-gray-100 py-4 flex justify-center text-center">
 
-        <input type="hidden" name="categoryId" value="<?php echo $category['id_category'] ; ?>">
+        <input type="hidden" name="categoryId" value="<?php echo $category->id_category ; ?>">
         <button type="submit" name="modifier" class="inline-block rounded-md bg-green-500 px-6 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Modifier</button>
         </form> 
 
         <form action="<?= PATH ?>index.php?page=Categories" method="post">
-        <input type="hidden" name="categoryId" value="<?php echo $category['id_category'] ; ?>">
+        <input type="hidden" name="categoryId" value="<?php echo $category->id_category ; ?>">
         <button type="submit" name="supprimer" class="inline-block rounded-md bg-red-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">Supprimer</button>
         </form> 
 
@@ -98,8 +98,8 @@ if(!isset($_SESSION['id_user'])){
         ?>
         
     <div class="w-full max-w-sm overflow-hidden rounded-lg border-2 bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl"> 
-        <h3 class="mt-2 text-center text-2xl font-bold text-gray-500"><?php echo $category['name'] ;?></h3>
-        <?php $formattedDate = date("d/m/Y", strtotime($category['created_at']));?>
+        <h3 class="mt-2 text-center text-2xl font-bold text-gray-500"><?php echo $category->name ;?></h3>
+        <?php $formattedDate = date("d/m/Y", strtotime($category->created_at));?>
         <p class="my-4 text-center text-sm text-gray-500">Disponible depuis : <?php echo $formattedDate; ?></p>
         <div class="space-x-4 bg-gray-200 py-4 flex justify-center text-center">
 
