@@ -53,7 +53,6 @@ class Wiki
     {
         $this->db->query("DELETE FROM wikis WHERE id_wiki = ?");
         $this->db->bind(1, $wikiId, PDO::PARAM_INT);
-
         return $this->db->execute();
     }
     
