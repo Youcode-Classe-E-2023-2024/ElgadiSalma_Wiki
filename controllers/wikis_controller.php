@@ -55,3 +55,19 @@ $wikis = $Wiki->getMyWikis($myId);
     }
 
 // end add wiki
+
+// delete wiki
+    if(isset($_POST['supprimer']))
+    {
+        $wikiId = $_POST['wikiId'];
+        echo $wikiId;
+        if($Wiki->deleteWiki($wikiId))
+        {
+            header("location:index.php?page=wikis");
+        }
+        else
+        {
+            echo"noo"; 
+        }
+    }
+// end delete wiki
