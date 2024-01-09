@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <script src="<?= PATH ?>assets/js/main.js"></script>
     <link rel="stylesheet" href="<?= PATH ?>assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js" integrity="sha512-eSeh0V+8U3qoxFnK3KgBsM69hrMOGMBy3CNxq/T4BArsSQJfKVsKb5joMqIPrNMjRQSTl4xG8oJRpgU2o9I7HQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
 </head>
 <body>
@@ -16,13 +17,12 @@
      <!-- user-->
 
     <?php
-    // if(isset($_SESSION['id_user'])){
-
     if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
     {
     ?>
-<!-- component -->
-    <div class="fixed w-full bg-white flex overflow-hidden" style="height: 200vh;"> 
+
+    <!-- component -->
+    <div class="w-full bg-white flex overflow-hidden"> 
 
     <!-- Sidebar -->
     <aside class="fixed h-full w-16 flex flex-col space-y-10 pt-20 items-center z-10	 justify-center bg-gray-800 text-white">
@@ -35,25 +35,9 @@
               </svg>
             </div>
         </a>
-        
-        <!-- friend -->
-        <a href="index.php?page=friend">
-           <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
-        </div> 
-        </a>
 
-        <!-- Add friends -->
-        <a href="<?= PATH ?>index.php?page=add_friend">
-        <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-        </div> 
-        </a>
-
-        <!-- Add room -->
-        <a href="<?= PATH ?>index.php?page=room">
+        <!-- Add wiki -->
+        <a href="<?= PATH ?>index.php?page=wikis">
           <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
               <img src="<?= PATH ?>assets/image/img/room.png" alt="">
             </div>  
@@ -79,9 +63,9 @@
 
     </aside>
 
-    <div class="w-full fixed h-full flex flex-col justify-between"  style="height: 200vh;">
+    <div class="w-full h-full  flex flex-col justify-between">
     <!-- Header -->
-    <header class="fixed h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
+    <header class="fixed z-96 z-10 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
       <!-- Informação -->
       <div class="flex flex-shrink-0 items-center space-x-4 text-white">
         
@@ -94,19 +78,21 @@
         </div>
         
         <!-- Foto -->
-        <div class="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div>
+        <div ><img class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400" src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
       </div>
     </header>
     
 
     
-    <main class="max-w-full ml-34 h-full flex flex-col gap-5 py-24 relative overflow-y-hidden">
+    <main class=" max-w-full ml-34 h-full flex flex-col gap-5 py-24 overflow-y-hidden">
     <?php include_once 'views/' . $page . '_view.php'; ?>
     </main>
     </div>
+
     <?php 
     }
     ?>
+
      <!--end user-->
 
 
@@ -191,7 +177,7 @@
         </div>
         
         <!-- Foto -->
-        <div class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400"><img src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
+        <div><img class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400" src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
       </div>
     </header>
     </div>
