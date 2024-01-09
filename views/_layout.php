@@ -63,9 +63,9 @@
 
     </aside>
 
-    <div class="w-full h-full flex flex-col justify-between">
+    <div class="w-full h-full  flex flex-col justify-between">
     <!-- Header -->
-    <header class="fixed z-96 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
+    <header class="fixed z-96 z-10 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
       <!-- Informação -->
       <div class="flex flex-shrink-0 items-center space-x-4 text-white">
         
@@ -78,7 +78,7 @@
         </div>
         
         <!-- Foto -->
-        <div class="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div>
+        <div ><img class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400" src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
       </div>
     </header>
     
@@ -177,7 +177,7 @@
         </div>
         
         <!-- Foto -->
-        <div class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400"><img src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
+        <div><img class="h-10 w-10 rounded-full cursor-pointer border-2 border-blue-400" src="./assets/image/users/<?php echo $_SESSION ['photo']; ?>"></div>
       </div>
     </header>
     </div>
