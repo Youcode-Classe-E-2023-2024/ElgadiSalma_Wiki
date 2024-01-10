@@ -12,18 +12,11 @@ $categories = $Wiki->getAllCategories();
 $tags = $Wiki->getAllTags();
 //end display all tags
 
-// get infos about wiki
-$id = $_GET['id'];
-if(!empty($id)){
-$wiki = $Wiki->getWikiById($id);}
-else{
-echo "eee";
-}
 
 // edit wiki
 if(isset($_POST['submit']))
     {
-        $id = $_GET['id'];
+        $id =  $_POST['id'];
         $title = $_POST['title'];
         $description = $_POST['description'];
         $photo = $_FILES['photo']['name'];
@@ -42,7 +35,7 @@ if(isset($_POST['submit']))
         }
         if(empty($photo))
         {
-            $photo_err = "Veuillez entrez l'image' du wiki";
+            $photo_err = "Veuillez entrez image du wiki";
         }
 
         if(empty($title_err) && empty($description_err) && empty($photo_err))
@@ -71,10 +64,20 @@ if(isset($_POST['submit']))
 
             // add wiki
             if($Wiki->updateWiki($id, $title, $description, $photo)){
-            echo"wee";
+            header("location:index.php?page=wikis");
             }
 
         }    
     }
 
 // end edit wiki
+
+
+
+// get infos about wiki
+$id = $_GET['id'];
+if(!empty($id)){
+$wiki = $Wiki->getWikiById($id);}
+else{
+echo "eee";
+}
