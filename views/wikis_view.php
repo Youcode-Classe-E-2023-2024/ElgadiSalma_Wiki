@@ -11,10 +11,32 @@ if(!isset($_SESSION['id_user'])){
   <form action="<?= PATH ?>index.php?page=wikis" method = "post" enctype="multipart/form-data">
 
     <div class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 gap-2 p-4 shadow-lg max-w-2xl">
-      <input class="title bg-gray-100 border border-gray-300 p-2 outline-none" spellcheck="false" name="title" placeholder="Title" type="text" required>
-      <input class="description bg-gray-100 px-3 h-40 border border-gray-300 outline-none" name="description" placeholder="Description of your wiki" required>
-      <input class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" spellcheck="false" name="photo" placeholder="photo" type="file" required>
-
+      <?php
+        if(!empty($title_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $title_err; ?></span>
+        <?php } ?>
+      <input class="title bg-gray-100 border border-gray-300 p-2 outline-none" spellcheck="false" name="title" placeholder="Title" type="text" >
+      
+      <?php
+        if(!empty($description_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $description_err; ?></span>
+        <?php } ?>
+      <input class="description bg-gray-100 px-3 h-40 border border-gray-300 outline-none" name="description" placeholder="Description of your wiki" >
+      
+      <?php
+        if(!empty($photo_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $photo_err; ?></span>
+        <?php } ?>
+      <input class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" spellcheck="false" name="photo" placeholder="photo" type="file" >
+      
+      <?php
+        if(!empty($category_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $category_err; ?></span>
+        <?php } ?>
       <select name="category" id="category" class="title bg-gray-100 border p-3 border-gray-300 p-2 outline-none" required>
           <option value="all" selected disabled>Category</option>
           <?php
@@ -24,10 +46,11 @@ if(!isset($_SESSION['id_user'])){
           <option value="<?php echo $category->id_category ?>"><?php echo $category->name; ?></option>
           <?php }?>
       </select>
-
+      
       <div class="title bg-gray-100 border border-gray-300 p-1 outline-none">
         <input type="text"   placeholder="Search" class="bg-gray-100 rounded  focus:outline-none border-b w-full pb-2 py-2 px-3 placeholder-gray-500" style="width: 35rem;">
-          <div class="absolute max-h-40  z-10 mt-2 bg-white border border-gray-300 rounded-md shadow-lg  hidden"  id="dropdownContent">
+        
+        <div class="absolute max-h-40  z-10 mt-2 bg-white border border-gray-300 rounded-md shadow-lg  hidden"  id="dropdownContent">
             <?php
             if (!empty($tags)) {
             foreach ($tags as $tag) {
@@ -44,6 +67,11 @@ if(!isset($_SESSION['id_user'])){
           </div>
         <button type="button" onclick="toggleDropdown()">^_^</button>
       </div>
+      <?php
+        if(!empty($selectedTags_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $selectedTags_err; ?></span>
+        <?php } ?> 
       
       <input type="hidden" name="myId" value="<?php echo$_SESSION['id_user']; ?>" >
         <!-- <boutton type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Post</boutton> -->
