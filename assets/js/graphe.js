@@ -1,4 +1,4 @@
-fetch('http://localhost/ElgadiSalma_Alpha/Pages/grapheUser')
+fetch('index.php?page=graphe')
     .then(response => response.json())
     .then(data => {
         createUserChart(data); // Appelle la fonction spécifique pour les utilisateurs
@@ -48,7 +48,7 @@ function createUserChart(data) {
 
 // Wikis Graphe
 
-fetch('http://localhost/ElgadiSalma_Alpha/Pages/grapheWikis')
+fetch('index.php?page=graphe')
     .then(response => response.json())
     .then(data => {
         createWikisChart(data); // Appelle la fonction spécifique pour les wikis
