@@ -1,5 +1,6 @@
 // console.log("salma");
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () 
+{
     var wikiData;
 
     var categorySelect = document.getElementById('category');
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fetchDataAndDisplay();
 
-    function fetchDataAndDisplay() {
+    function fetchDataAndDisplay() 
+    {
         var category = categorySelect.value;
         var tag = tagSelect.value;
 
@@ -27,30 +29,30 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error('Error', error));
     }
 
-    function Search() {
+    function Search() 
+    {
         const searchTerm = searchInput.value.trim().toLowerCase();
-        const filteredWikis = wikiData.filter(wiki => wiki.title.toLowerCase().includes(searchTerm));
+        const filteredWikis = wikiData.filter(wiki => wiki.titre.toLowerCase().includes(searchTerm));
         displayData(filteredWikis);
     }
 
-    function displayData(wikis) {
+    function displayData(wikis) 
+    {
         console.log('Displaying data:', wikis);
 
         const rows = wikis.map((wiki) => {
             return (
                 `
-
-                <div class="max-w-sm bg-white px-6 pt-6 flex flex-col justify-between pb-2 rounded-xl shadow-lg transform transition duration-500">
+                <div class=" text-center  w-content ">
+                <div class="max-w-sm border-2 bg-white px-6  pt-6 flex flex-col justify-between pb-2 rounded-xl shadow-lg transform transition duration-500">
                     <h3 class="mb-3 text-xl font-bold text-indigo-600">${wiki.titre}</h3>
                     <img class="w-full rounded-xl h-72 w-72" src="./assets/image/wikis/${wiki.photo}" />
-                    <div class="mt-4 flex gap-2">                    
-                    </div>
                     <div class="">
-                        <div class="flex space-x-1 items-center">
-                            <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
-                        </div>
+                            <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
                     </div>
                 </div>
+                </div>
+
                 `
             );
         });
