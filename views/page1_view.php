@@ -94,7 +94,7 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
 
         <!-- Ajoutdu bouton d'exportation PDF -->
         <div class="flex justify-center pt-10 mt-6">
-            <button id="exportToPDF" class="bg-purple-300 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Exporter en PDF</button>
+            <button class="bg-purple-300 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onclick="pdf()">Exporter en PDF</button>
         </div>
     </div>
 
