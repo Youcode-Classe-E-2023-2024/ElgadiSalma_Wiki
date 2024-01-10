@@ -2,6 +2,7 @@
 
 $Wiki = new  Wiki();
 
+// filter wikis
 $category = isset($_GET['category']) ? $_GET['category'] : 'all';
 $tag = isset($_GET['tag']) ? $_GET['tag'] : 'all';
 
@@ -26,3 +27,7 @@ switch (true)
 }   
 
 echo json_encode($filteredTickets);
+die();
+
+
+// end filter wikis
