@@ -66,32 +66,33 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
     <!-- graphe -->
     <div class="pt-6 flex justify-center">
         <div class=" gap-10 flex flex-wrap w-full justify-center">
-                <div class="w-1/3 py-6 px-6 1/3 rounded-xl border border-gray-200 bg-white">
-                    <h5 class="text-xl text-gray-700">Utilisateurs</h5>
-                    <div class="my-8">
-                        <span class="text-gray-500">Compared to last week $13,988</span>
-                    </div>
-                    <canvas id="userChart" class="w-full" height="150"></canvas>
+            <div class="w-1/3 py-6 px-6 1/3 rounded-xl border border-gray-200 bg-white">
+                <h5 class="text-xl text-gray-700">Utilisateurs</h5>
+                <div class="my-8">
+                    <span class="text-gray-500">Compared to last week $13,988</span>
                 </div>
+                <canvas id="userChart" class="w-full" height="150"></canvas>
+            </div>
 
-                <div class="w-1/3 py-6 px-6 rounded-xl border border-gray-200 bg-white">
-                    <h5 class="text-xl text-gray-700">Products</h5>
-                    <div class="my-8">
-                        <span class="text-gray-500">Compared to last week $13,988</span>
-                    </div>
-                    <canvas id="wikiChart" class="w-full" height="150"></canvas>
+            <div class="w-1/3 
+            py-6 px-6 rounded-xl border border-gray-200 bg-white">
+                <h5 class="text-xl text-gray-700">Products</h5>
+                <div class="my-8">
+                    <span class="text-gray-500">Compared to last week $13,988</span>
                 </div>
+                <canvas id="wikiChart" class="w-full" height="150"></canvas>
+            </div>
 
-            <!-- end graphe -->
-                <div class=" w-2/3 py-6 px-6 rounded-xl flex flex-col gap-5 bg-gray-100 text-center border border-gray-200 bg-white">
-                    <div>
-                        <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre d'utilisateurs :</ins></h5>
-                        <h1 class="text-2xl text-gray-600"><?php echo $countUsers; ?> utilisateurs</h1>
-                    </div>
-                    <div>
-                        <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre de Wikis :</ins></h5>
-                        <h1 class="text-2xl text-gray-600"><?php echo $countWikis; ?> wikis</h1>
-                    </div>
+        <!-- end graphe -->
+            <div class=" w-2/3 py-6 px-6 rounded-xl flex flex-col gap-5 bg-gray-100 text-center border border-gray-200 bg-white">
+                <div>
+                    <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre d'utilisateurs :</ins></h5>
+                    <h1 class="text-2xl text-gray-600"><?php echo $countUsers; ?> utilisateurs</h1>
+                </div>
+                <div>
+                    <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre de Wikis :</ins></h5>
+                    <h1 class="text-2xl text-gray-600"><?php echo $countWikis; ?> wikis</h1>
+                </div>
             </div>
         </div>
     </div>
