@@ -165,4 +165,19 @@ class Wiki
 
     // end filter wikis
 
+
+    // graphe
+
+    public function countWikis()
+    {
+        $this->db->query('SELECT id_wiki FROM wikis');
+        if($this->db->execute()){
+            return $this->db->rowCount();
+        }else{
+            die("Error in countwikis");
+        }
+    }
+
+    // end graphe
+
 }
