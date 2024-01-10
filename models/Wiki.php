@@ -165,4 +165,26 @@ class Wiki
 
     // end filter wikis
 
+
+    // graphe
+
+    public function countWikis()
+    {
+        $this->db->query('SELECT id_wiki FROM wikis');
+        if($this->db->execute()){
+            return $this->db->rowCount();
+        }else{
+            die("Error in countwikis");
+        }
+    }
+
+    public function grapheWiki()
+    {
+        $this->db->query("SELECT DATE(created_at) AS date, COUNT(*) AS wiki_count FROM wikis GROUP BY date ORDER BY date");
+        $wikis = $this->db->resultset();
+        return $wikis;
+    }
+
+    // end graphe
+
 }

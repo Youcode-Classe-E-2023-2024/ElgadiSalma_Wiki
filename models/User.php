@@ -87,4 +87,24 @@ class User
     }
 
 
+    // graphe
+
+    public function countUsers()
+    {
+        $this->db->query('SELECT id_user FROM users');
+        if($this->db->execute()){
+            return $this->db->rowCount();
+        }else{
+            die("Error in countusers");
+        }
+    }
+
+    public function grapheUser()
+    {
+      $this->db->query("SELECT DATE(created_at) AS date, COUNT(*) AS user_count FROM users GROUP BY date ORDER BY date");
+      $users = $this->db->resultset();
+      return $users;
+    }
+
+    // end graphe
 }

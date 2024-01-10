@@ -60,6 +60,49 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
 if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
 {
 ?>
-<h1>salam ana admin , dashboard ghaybano fiha les statistiques</h1>
+
+<h1 class="text-4xl text-purple-500 pt-3 text-center font-bold">Statistiques</h1>
+    <div id="statistique">
+    <!-- graphe -->
+    <div class="pt-6 flex justify-center">
+        <div class=" gap-10 flex flex-wrap w-full justify-center">
+            <div class="w-1/3 py-6 px-6 1/3 rounded-xl border border-gray-200 bg-white">
+                <h5 class="text-xl text-gray-700">Utilisateurs</h5>
+                <div class="my-8">
+                    <span class="text-gray-500">Compared to last week $13,988</span>
+                </div>
+                <canvas id="userChart" class="w-full" height="150"></canvas>
+            </div>
+
+            <div class="w-1/3 
+            py-6 px-6 rounded-xl border border-gray-200 bg-white">
+                <h5 class="text-xl text-gray-700">Products</h5>
+                <div class="my-8">
+                    <span class="text-gray-500">Compared to last week $13,988</span>
+                </div>
+                <canvas id="wikiChart" class="w-full" height="150"></canvas>
+            </div>
+
+        <!-- end graphe -->
+            <div class=" w-2/3 py-6 px-6 rounded-xl flex flex-col gap-5 bg-gray-100 text-center border border-gray-200 bg-white">
+                <div>
+                    <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre d'utilisateurs :</ins></h5>
+                    <h1 class="text-2xl text-gray-600"><?php echo $countUsers; ?> utilisateurs</h1>
+                </div>
+                <div>
+                    <h5 class="text-xl text-yellow-500 font-bold"><ins>Nombre de Wikis :</ins></h5>
+                    <h1 class="text-2xl text-gray-600"><?php echo $countWikis; ?> wikis</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Ajoutdu bouton d'exportation PDF -->
+        <div class="flex justify-center pt-10 mt-6">
+            <button id="exportToPDF" class="bg-purple-300 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Exporter en PDF</button>
+        </div>
+    </div>
+
+
 <?php } ?>
 <!-- end admin -->
