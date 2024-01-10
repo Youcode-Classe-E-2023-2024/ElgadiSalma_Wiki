@@ -3,7 +3,11 @@
 $Wiki = new  Wiki();
 $User = new  User();
 
+$data = [
+    'users' => $User->grapheUser(),
+    'wikis' => $Wiki->grapheWiki(),
+];
 
-// graphe user
-$users = $User->grapheUser();
-echo json_encode($users);
+echo json_encode($data);
+
+die;
