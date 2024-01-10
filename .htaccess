@@ -7,3 +7,4 @@
 # <IfModule mod_rewrite.c>
 #     RewriteRule ^ElgadiSalma_Wiki/assets/ - [L]
 # </IfModule>
+# zzz
