@@ -178,6 +178,13 @@ class Wiki
         }
     }
 
+    public function grapheWiki()
+    {
+        $this->db->query("SELECT DATE(created_at) AS date, COUNT(*) AS wiki_count FROM wikis GROUP BY date ORDER BY date");
+        $wikis = $this->db->resultset();
+        return $wikis;
+    }
+
     // end graphe
 
 }
