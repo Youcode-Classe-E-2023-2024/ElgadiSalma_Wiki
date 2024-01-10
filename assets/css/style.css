@@ -1,0 +1,99 @@
+.cards {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.category-card {
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+    /* background-color: #ffe9da; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+.category-card img {
+    width: 5rem;
+
+}
+
+.bout {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.bout button {
+    width: 10rem;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1rem;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #f4fffe;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .35em;
+    border: 1px solid black;
+}
+
+option {
+    text-align: center;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #f4fffe;
+    height: 2px;
+    /* border-bottom: 1px solid black; */
+
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: #00b9a8;
+}
