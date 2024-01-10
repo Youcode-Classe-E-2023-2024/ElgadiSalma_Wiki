@@ -55,6 +55,24 @@ class Wiki
         $this->db->bind(1, $wikiId, PDO::PARAM_INT);
         return $this->db->execute();
     }
+
+    public function getWikiById($id)
+    {
+        $this->db->query("SELECT * FROM wikis WHERE id_wiki = '$id'");
+        $wiki = $this->db->resultSet();
+        return $wiki; 
+    }
+
+    public function updateWiki($id, $title, $description, $photo)
+    {
+        $this->db->query("UPDATE wikis SET title = ?, description = ?, photo = ? WHERE id_wiki = ?");
+        $this->db->bind(1, $title, PDO::PARAM_STR);
+        $this->db->bind(2, $description, PDO::PARAM_STR);
+        $this->db->bind(3, $photo, PDO::PARAM_STR);
+        $this->db->bind(4, $id, PDO::PARAM_INT);
+
+        return $this->db->execute();
+    }
     
     // end CRUD wiki
 
@@ -129,6 +147,13 @@ class Wiki
 
         return $this->db->execute();
     }
+
+    // public function getCategoryById()
+    // {
+    //     $this->db->query("SELECT * FROM category WHERE");
+    //     $categories = $this->db->resultSet();
+    //     return $categories;
+    // }
 
     // end add category
 

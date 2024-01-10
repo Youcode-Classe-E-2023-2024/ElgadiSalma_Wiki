@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST')
     else 
     {
         echo "not log";
-        header("location:index.php?page=login?STATUS=probleme_de_connexion");
+        header("location:index.php?page=login&STATUS=probleme_de_connexion");
         exit();
     }
 }
