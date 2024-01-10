@@ -45,7 +45,9 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
     </div>
 </form>
 
-<div id="wikiContainer" class="container">
+
+<div id="wikiContainer" class="flex flex-wrap gap-5 justify-center">
+</div>
 
 <!-- end user -->
 
