@@ -91,7 +91,8 @@ fetch('index.php?page=graphe')
     // End Wikis Graphe
     
     // to pdf
-    document.getElementById('exportToPDF').addEventListener('click', function() {
+    document.getElementById('exportToPDF').addEventListener('click', function() 
+    {
         const element = document.getElementById('statistique');
         html2pdf(element);
     });
