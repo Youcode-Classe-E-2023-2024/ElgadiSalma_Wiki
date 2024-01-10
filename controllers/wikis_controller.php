@@ -26,7 +26,35 @@ $wikis = $Wiki->getMyWikis($myId);
         $myId = $_POST['myId'];
         $photo = $_FILES['photo']['name'];
         $selectedTags = isset($_POST['selected_tags']) ? $_POST['selected_tags'] : [];
+        $title_err ='';
+        $description_err ='';
+        $category_err ='';
+        $photo_err ='';
+        $selectedTags_err ='';
 
+        if(empty($title))
+        {
+            $title_err = "Veuillez entrez le nom du wiki";
+        }
+        if(empty($description))
+        {
+            $description_err = "Veuillez entrez la description du wiki";
+        }
+        if(empty($photo))
+        {
+            $photo_err = "Veuillez entrez image du wiki";
+        }
+        if(empty($category))
+        {
+            $category_err = "Veuillez entrez la category du wiki";
+        }
+        if(empty($selectedTags))
+        {
+            $selectedTags_err = "Veuillez entrez des tags pour le wiki";
+        }
+
+        if(empty($title_err) && empty($description_err) && empty($photo_err) && empty($category_err) && empty($selectedTags_err) && !empty($myId))
+        {
             $targetDir = "./assets/image/wikis/";
             // Get the uploaded file's name and temporary name
             $photo = basename($_FILES["photo"]["name"]);
@@ -49,9 +77,9 @@ $wikis = $Wiki->getMyWikis($myId);
                     echo "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
                 }
 
-    // add wiki
-    $Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo);
-            
+        // add wiki
+        $Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo);       
+        }
     }
 
 // end add wiki
