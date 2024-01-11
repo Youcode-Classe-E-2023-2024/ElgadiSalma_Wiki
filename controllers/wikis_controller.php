@@ -111,15 +111,26 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
     $wikis =  $Wiki->allWikis();
     if(isset($_POST['archiver']))
     {
-        echo "archiver";
-        header("location:index.php?page=wikis");
-
+        $wikiId = $_POST['wikiId'];
+        if(empty($wikiId)){
+            header("location:index.php?page=wikis&STATUS:error");
+        }
+        if($Wiki->archiverWiki($wikiId))
+        {
+            header("location:index.php?page=wikis");
+        }
     }
+
     if(isset($_POST['desarchiver']))
     {
-        echo "desarchiver";
-        header("location:index.php?page=wikis");
-
+        $wikiId = $_POST['wikiId'];
+        if(empty($wikiId)){
+            header("location:index.php?page=wikis&STATUS:error");
+        }
+        if($Wiki->desarchiverWiki($wikiId))
+        {
+            header("location:index.php?page=wikis");
+        }
     }
 
 }
