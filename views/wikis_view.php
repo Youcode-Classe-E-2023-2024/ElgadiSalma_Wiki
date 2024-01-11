@@ -176,7 +176,12 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
       <div class="mt-4  gap-2">
         <form action="<?= PATH ?>index.php?page=wikis" method="post">
           <input type="hidden" name="wikiId" value="<?php echo $wiki->id_wiki ; ?>">
-          <button type="submit" name="archiver" class="inline-block w-full rounded-md bg-blue-200 px-10 py-2 font-semibold text-black shadow-md duration-75 hover:bg-blue-100 ">Archiver</button>
+        <?php if($wiki->archive === 0){ ?>
+          <button type="submit" id="archiverBtn" name="archiver" class="inline-block w-full rounded-md bg-blue-200 px-10 py-2 font-semibold text-black shadow-md duration-75 " onclick="toggleArchiver()">Archiver</button>
+        <?php } ?>
+        <?php if($wiki->archive === 1){ ?>
+          <button type="submit" id="archiverBtn" name="desarchiver" class="inline-block w-full rounded-md bg-green-200 px-10 py-2 font-semibold text-black shadow-md duration-75 " onclick="toggleArchiver()">Désarchiver</button>
+        <?php } ?>
         </form>
       </div>
       <a href="<?= PATH ?>index.php?page=details_wiki&id=<?php echo $wiki->id_wiki ; ?>">
@@ -201,8 +206,7 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
 </div>
 </div>
 
-<!--end display my wikis -->
-
+<!--end display all wikis -->
 
 <?php 
 }
@@ -210,9 +214,33 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
   
   <!--end admin-->
 
+
+
 <script>
-  function toggleDropdown() {
+  function toggleDropdown()
+  {
         var dropdown = document.getElementById('dropdownContent');
         dropdown.classList.toggle('hidden');
-    }
+  }
+
+
+  // function toggleArchiver() 
+  // {
+  //   var archiverBtn = document.getElementById('archiverBtn');
+
+  //   if (archiverBtn.textContent === 'Archiver') {
+  //       // Action à effectuer lors de l'archivage
+  //       archiverBtn.textContent = 'Désarchiver';
+  //       archiverBtn.name = 'desarchiver';
+  //       archiverBtn.classList.remove('bg-blue-200');
+  //       archiverBtn.classList.add('bg-green-200');
+  //   } else {
+  //       // Action à effectuer lors du désarchivage
+  //       archiverBtn.textContent = 'Archiver';
+  //       archiverBtn.name = 'archiver';
+  //       archiverBtn.classList.remove('bg-green-200');
+  //       archiverBtn.classList.add('bg-blue-200');
+  //   }
+  // }
+
 </script>
