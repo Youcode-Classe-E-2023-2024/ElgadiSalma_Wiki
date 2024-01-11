@@ -11,7 +11,17 @@
         $photo = $_FILES['photo']['name'];
         $role = 0;
         $email_err= "";
+        $photo_err = "";
+        $username_err = "";
 
+        if(empty($username))
+        {
+            $username_err = "Veuillez entrez votre nom ";
+        }
+        if(empty($photo))
+        {
+            $photo_err = "Veuillez entrez votre photo ";
+        }
         if($users->check_email($email))
         {
             $email_err="Email deja existant";
