@@ -47,6 +47,12 @@ if(!isset($_SESSION['id_user'])){
           <?php }?>
       </select>
       
+      <?php
+        if(!empty($selectedTags_err)){
+        ?>
+        <span class="text-red-700">*<?php echo $selectedTags_err; ?></span>
+        <?php } ?> 
+      
       <div class="title bg-gray-100 border border-gray-300 p-1 outline-none">
         <input type="text"   placeholder="Search" class="bg-gray-100 rounded  focus:outline-none border-b w-full pb-2 py-2 px-3 placeholder-gray-500" style="width: 35rem;">
         
@@ -67,16 +73,9 @@ if(!isset($_SESSION['id_user'])){
           </div>
         <button type="button" onclick="toggleDropdown()">^_^</button>
       </div>
-      <?php
-        if(!empty($selectedTags_err)){
-        ?>
-        <span class="text-red-700">*<?php echo $selectedTags_err; ?></span>
-        <?php } ?> 
       
       <input type="hidden" name="myId" value="<?php echo$_SESSION['id_user']; ?>" >
-        <!-- <boutton type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Post</boutton> -->
-        <!-- <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Modifier</button> -->
-
+      
       <!-- buttons -->
       <div class="buttons pt-5 gap-2 flex justify-end">
       <button type="submit" name="submit" class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Save</button>
