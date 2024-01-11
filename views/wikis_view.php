@@ -179,11 +179,13 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
           <button type="submit" name="archiver" class="inline-block w-full rounded-md bg-blue-200 px-10 py-2 font-semibold text-black shadow-md duration-75 hover:bg-blue-100 ">Archiver</button>
         </form>
       </div>
+      <a href="<?= PATH ?>index.php?page=details_wiki&id=<?php echo $wiki->id_wiki ; ?>">
       <div class="">
         <div class="flex space-x-1 items-center">
           <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
         </div>
       </div>
+      </a>
     </div>
 
     <?php }}
