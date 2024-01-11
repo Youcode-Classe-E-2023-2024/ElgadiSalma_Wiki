@@ -108,5 +108,18 @@ $wikis = $Wiki->getMyWikis($myId);
 if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
 {
 
-$wikis =  $Wiki->allWikis();
+    $wikis =  $Wiki->allWikis();
+    if(isset($_POST['archiver']))
+    {
+        echo "archiver";
+        header("location:index.php?page=wikis");
+
+    }
+    if(isset($_POST['desarchiver']))
+    {
+        echo "desarchiver";
+        header("location:index.php?page=wikis");
+
+    }
+
 }
