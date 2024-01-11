@@ -22,7 +22,7 @@ $wikis = $Wiki->getMyWikis($myId);
     {
         $title = $_POST['title'];
         $description = $_POST['description'];
-        $category=$_POST['category'];
+        $category= isset($_POST['category']) ? $_POST['category'] : [];
         $myId = $_POST['myId'];
         $photo = $_FILES['photo']['name'];
         $selectedTags = isset($_POST['selected_tags']) ? $_POST['selected_tags'] : [];
