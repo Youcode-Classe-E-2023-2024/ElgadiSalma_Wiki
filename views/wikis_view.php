@@ -115,10 +115,10 @@ if(!isset($_SESSION['id_user'])){
       <h3 class="mb-3 text-xl font-bold text-indigo-600"><?php echo $wiki->title ; ?></h3>
       <img class="w-full rounded-xl h-72 w-72" src="./assets/image/wikis/<?php echo $wiki->photo ; ?>" />
       <div class="mt-4 flex gap-2">
-        <a href="<?= PATH ?>index.php?page=edit_wiki&id=<?php echo $wiki->id_wiki ; ?>" class="inline-block w-1/2 rounded-md bg-green-500 px-6 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400"><button type="submit" name="modifier" >Modifier</button></a>
+        <a href="<?= PATH ?>index.php?page=edit_wiki&id=<?php echo $wiki->id_wiki ; ?>" class="inline-block w-1/2 rounded-md bg-blue-300 px-6 py-2 font-semibold text-gray-100 shadow-md duration-75 hover:bg-green-300"><button type="submit" name="modifier" >Modifier</button></a>
         <form action="<?= PATH ?>index.php?page=wikis" method="post">
           <input type="hidden" name="wikiId" value="<?php echo $wiki->id_wiki ; ?>">
-          <button type="submit" name="supprimer" class="inline-block rounded-md bg-red-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">Supprimer</button>
+          <button type="submit" name="supprimer" class="inline-block rounded-md bg-blue-300 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-300">Supprimer</button>
         </form>
       </div>
       <div class="">
