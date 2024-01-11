@@ -50,9 +50,13 @@ document.addEventListener('DOMContentLoaded', function ()
                 <div class="max-w-sm border-2 bg-white px-6  pt-6 flex flex-col justify-between pb-2 rounded-xl shadow-lg transform transition duration-500">
                     <h3 class="mb-3 text-xl font-bold text-indigo-600">${wiki.title}</h3>
                     <img class="w-full rounded-xl h-72 w-72" src="./assets/image/wikis/${wiki.photo}" />
+                    <a href="index.php?page=details_wiki&id=${wiki.id_wiki}">
                     <div class="">
-                            <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+                        <div class="flex space-x-1 items-center">
+                        <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+                        </div>
                     </div>
+                    </a>
                 </div>
                 </div>
 
