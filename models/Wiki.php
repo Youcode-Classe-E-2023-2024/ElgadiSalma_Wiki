@@ -73,6 +73,20 @@ class Wiki
 
         return $this->db->execute();
     }
+
+    public function archiverWiki($wikiId)
+    {
+        $this->db->query("UPDATE wikis SET archive = '1' WHERE id_wiki = '$wikiId'");
+
+        return $this->db->execute();
+    }
+
+    public function desarchiverWiki($wikiId)
+    {
+        $this->db->query("UPDATE wikis SET archive = '0' WHERE id_wiki = '$wikiId'");
+
+        return $this->db->execute();
+    }
     
     // end CRUD wiki
 
