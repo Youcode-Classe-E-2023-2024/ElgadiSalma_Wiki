@@ -4,6 +4,14 @@ if(!isset($_SESSION['id_user'])){
 }
 ?>
 
+<!-- user wikis -->
+
+
+  <?php
+  if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
+  {
+  ?>
+
 <!-- add wiki -->
 
 <div class="heading text-center font-bold text-2xl text-yellow-400">New Wiki</div>
@@ -135,6 +143,70 @@ if(!isset($_SESSION['id_user'])){
 
 <!--end display my wikis -->
 
+<?php 
+}
+?>
+
+  <!--end user-->
+
+
+
+  <!--admin wikis-->
+
+<?php
+if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
+{
+?>
+
+<!-- display all wikis -->
+
+<div class="min-h-screen flex flex-col items-center">
+<div class="heading text-center font-bold text-2xl pt-10 text-yellow-400">All Wikis</div>
+
+<div class="flex text-center pl-36 gap-10 flex-wrap mt-10">
+
+    <?php
+    if (!empty($wikis)) {
+    foreach ($wikis as $wiki) {
+    ?>
+
+    <div class="max-w-sm bg-white px-6 pt-6 flex flex-col justify-between pb-2 rounded-xl shadow-lg transform transition duration-500">
+      <h3 class="mb-3 text-xl font-bold text-indigo-600"><?php echo $wiki->title ; ?></h3>
+      <img class="w-full rounded-xl h-72 w-72" src="./assets/image/wikis/<?php echo $wiki->photo ; ?>" />
+      <div class="mt-4  gap-2">
+        <form action="<?= PATH ?>index.php?page=wikis" method="post">
+          <input type="hidden" name="wikiId" value="<?php echo $wiki->id_wiki ; ?>">
+          <button type="submit" name="archiver" class="inline-block w-full rounded-md bg-blue-200 px-10 py-2 font-semibold text-black shadow-md duration-75 hover:bg-blue-100 ">Archiver</button>
+        </form>
+      </div>
+      <div class="">
+        <div class="flex space-x-1 items-center">
+          <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
+        </div>
+      </div>
+    </div>
+
+    <?php }}
+    else{?>
+      <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform transition duration-500">
+      <h3 class="mb-3 text-xl font-bold text-indigo-600">Aucune Wiki trouvée</h3>
+      </div>
+    <?php }
+      ?>
+
+    
+  
+</div>
+</div>
+
+<!--end display my wikis -->
+
+
+<?php 
+}
+?>
+  
+  <!--end admin-->
 
 <script>
   function toggleDropdown() {
