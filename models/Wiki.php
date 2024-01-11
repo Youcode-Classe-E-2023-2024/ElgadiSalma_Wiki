@@ -148,12 +148,26 @@ class Wiki
         return $this->db->execute();
     }
 
-    // public function getCategoryById()
-    // {
-    //     $this->db->query("SELECT * FROM category WHERE");
-    //     $categories = $this->db->resultSet();
-    //     return $categories;
-    // }
+    public function getCategoryById($id)
+    {
+        $this->db->query("SELECT * FROM category WHERE id_category IN (SELECT category FROM wikis WHERE id_wiki = $id)");
+        $categories = $this->db->resultSet();
+        return $categories;
+    }
+    
+    public function getUserByWiki($id)
+    {
+        $this->db->query("SELECT * FROM users WHERE id_user IN (SELECT created_by FROM wikis WHERE id_wiki = $id)");
+        $users = $this->db->resultSet();
+        return $users;
+    }
+
+    public function getTagById($id)
+    {
+        $this->db->query("SELECT * FROM tags WHERE id_tag IN (SELECT id_tag FROM tag_wiki WHERE id_wiki = $id)");
+        $tags = $this->db->resultSet();
+        return $tags;
+    }
 
     // end add category
 
