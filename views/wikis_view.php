@@ -121,11 +121,13 @@ if(!isset($_SESSION['id_user'])){
           <button type="submit" name="supprimer" class="inline-block rounded-md bg-blue-300 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-300">Supprimer</button>
         </form>
       </div>
+      <a href="<?= PATH ?>index.php?page=details_wiki&id=<?php echo $wiki->id_wiki ; ?>">
       <div class="">
         <div class="flex space-x-1 items-center">
           <button class="mt-2 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Voir plus -></button>
         </div>
       </div>
+      </a>
     </div>
 
     <?php }}
@@ -222,25 +224,5 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
         var dropdown = document.getElementById('dropdownContent');
         dropdown.classList.toggle('hidden');
   }
-
-
-  // function toggleArchiver() 
-  // {
-  //   var archiverBtn = document.getElementById('archiverBtn');
-
-  //   if (archiverBtn.textContent === 'Archiver') {
-  //       // Action à effectuer lors de l'archivage
-  //       archiverBtn.textContent = 'Désarchiver';
-  //       archiverBtn.name = 'desarchiver';
-  //       archiverBtn.classList.remove('bg-blue-200');
-  //       archiverBtn.classList.add('bg-green-200');
-  //   } else {
-  //       // Action à effectuer lors du désarchivage
-  //       archiverBtn.textContent = 'Archiver';
-  //       archiverBtn.name = 'archiver';
-  //       archiverBtn.classList.remove('bg-green-200');
-  //       archiverBtn.classList.add('bg-blue-200');
-  //   }
-  // }
 
 </script>
