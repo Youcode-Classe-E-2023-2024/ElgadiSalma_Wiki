@@ -4,6 +4,9 @@
 
 $Wiki = new Wiki();
 
+if(isset($_SESSION['role']) && $_SESSION['role'] === 0)
+{
+    
 // display all categories
 $categories = $Wiki->getAllCategories();
 //end display all categories
@@ -99,3 +102,11 @@ $wikis = $Wiki->getMyWikis($myId);
         }
     }
 // end delete wiki
+
+}
+
+if(isset($_SESSION['role']) && $_SESSION['role'] === 1)
+{
+
+$wikis =  $Wiki->allWikis();
+}

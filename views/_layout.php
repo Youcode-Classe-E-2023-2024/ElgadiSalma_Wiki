@@ -149,7 +149,7 @@
         </a>
 
         <!-- Configuration -->
-        <a href="">
+        <a href="<?= PATH ?>index.php?page=wikis">
         <div class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -169,7 +169,7 @@
 
     <div class="w-full h-full flex flex-col justify-between">
     <!-- Header -->
-    <header class="fixed z-96 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
+    <header class="fixed z-96 z-10 h-16 w-full flex items-center justify-end px-5 space-x-10 bg-gray-800">
       <!-- Informação -->
       <div class="flex flex-shrink-0 items-center space-x-4 text-white">
         
