@@ -111,7 +111,7 @@ class Wiki
 
     public function getAllTags()
     {
-        $this->db->query("SELECT * FROM tags");
+        $this->db->query("SELECT * FROM tags ORDER BY created_at DESC");
         $tags = $this->db->resultSet();
         return $tags;
     }
@@ -189,7 +189,7 @@ class Wiki
 
     public function allWikis()
     {
-        $this->db->query("SELECT * FROM wikis");
+        $this->db->query("SELECT * FROM wikis ORDER BY created_at DESC");
         $wikis = $this->db->resultSet();
         return $wikis;
     }

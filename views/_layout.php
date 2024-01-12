@@ -196,11 +196,28 @@
      <!-- end admin-->
 
 
-
     <?php
         if(!isset($_SESSION['id_user']))
         {
     ?>
+
+  <header class="flex justify-between p-1 bg-gray-800">
+      <div class="pl-5 py-2">
+          <img class="w-18 h-10" src="<?= PATH ?>assets/image/img/w.png" alt="">
+      </div>
+      
+      <div class="flex gap-5 items-center pr-5">
+        <a href="<?= PATH ?>index.php?page=visitor"><button type="button" class="bg-gray-300 py-1 px-4 rounded-xl">Home</button></a>
+          
+        <a href="<?= PATH ?>index.php?page=login"><button type="button" class="bg-gray-300 py-1 px-4 rounded-xl">Ajouter une wiki</button></a>
+
+        <a href="<?= PATH ?>index.php?page=login"><button type="button" class="bg-gray-300 py-1 px-4 rounded-xl">Se connecter</button></a>
+
+        <a href="<?= PATH ?>index.php?page=register"><button type="button" class="bg-gray-300 py-1 px-4 rounded-xl">S'enregistrer</button></a>  
+      </div>
+      
+  </header>
+
 
     <main>
         <?php include_once 'views/' . $page . '_view.php'; ?>
