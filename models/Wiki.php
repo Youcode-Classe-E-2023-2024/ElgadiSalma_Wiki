@@ -111,7 +111,7 @@ class Wiki
 
     public function getAllTags()
     {
-        $this->db->query("SELECT * FROM tags");
+        $this->db->query("SELECT * FROM tags ORDER BY created_at DESC");
         $tags = $this->db->resultSet();
         return $tags;
     }
