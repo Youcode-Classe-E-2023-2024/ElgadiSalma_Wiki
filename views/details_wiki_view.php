@@ -1,9 +1,3 @@
-<?php
-if(!isset($_SESSION['id_user'])){
-    header("location:index.php?page=login");
-}
-
-?>
 
 <main class="mt-5 justify-center">
     <?php
