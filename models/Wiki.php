@@ -189,7 +189,7 @@ class Wiki
 
     public function allWikis()
     {
-        $this->db->query("SELECT * FROM wikis");
+        $this->db->query("SELECT * FROM wikis ORDER BY created_at DESC");
         $wikis = $this->db->resultSet();
         return $wikis;
     }
