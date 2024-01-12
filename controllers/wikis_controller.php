@@ -21,7 +21,7 @@ $wikis = $Wiki->getMyWikis($myId);
 // end diplay my wikis
 
 // add wiki
-    if(isset($_POST['submit']))
+    if(isset($_POST['submit'])  )
     {
         $title = $_POST['title'];
         $description = $_POST['description'];
@@ -81,7 +81,16 @@ $wikis = $Wiki->getMyWikis($myId);
                 }
 
         // add wiki
-        $Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo);       
+        if($Wiki->addWiki($myId, $title, $description,$category, $selectedTags, $photo))
+        {
+            // $title = "";
+            // $description = "";
+            // $category = "";
+            // $selectedTags = "";
+            // $photo = "";
+            header("location:index.php?page=wikis");
+
+        }       
         }
     }
 
